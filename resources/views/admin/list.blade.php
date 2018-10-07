@@ -8,6 +8,7 @@
 <body>
 
 	<div class="container py-5">
+            <a href="{{route('admin.store')}}">buat data baru</a>
         <div class="row">
           @foreach($product as $key )
             <div class="col-md-3">

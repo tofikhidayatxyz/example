@@ -27,9 +27,13 @@ Route::group(['prefix'=>'admin' , 'middleware'=>['auth','role:admin']],function(
  	route::get('/product/list','Admin\StoreController@index')->name('admin.list');
  
  	route::post('/product/store/create','Admin\StoreController@store')->name('admin.create');
- 	route::post('/product/store/update','Admin\StoreController@update')->name('admin.update');
+ 	route::patch('/product/store/update','Admin\StoreController@update')->name('admin.update');
  	route::post('/product/store/delete','Admin\StoreController@destroy')->name('admin.destroy');	
  	route::get('/product/store/edit/{id}','Admin\StoreController@edit')->name('admin.edit');
+
+ 	route::get('/user','AdminController@userList')->name('admin.user');
+	route::get('/user/edit/{id}','Admin\UserController@edit')->name('user.edit');
+	route::patch('/user/update','Admin\UserController@update')->name('user.update');
 
 
 });

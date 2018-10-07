@@ -30,7 +30,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-right">phone</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" phone="phone" value="{{ old('phone') }}" required autofocus>
+                                <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required autofocus>
 
                                 @if ($errors->has('phone'))
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                             <label for="province" class="col-md-4 col-form-label text-md-right">province</label>
 
                             <div class="col-md-6">
-                                <input id="province" type="text" class="form-control{{ $errors->has('province') ? ' is-invalid' : '' }}" province="province" value="{{ old('province') }}" required autofocus>
+                                <input id="province" type="text" class="form-control{{ $errors->has('province') ? ' is-invalid' : '' }}" name="province" value="{{ old('province') }}" required autofocus>
 
                                 @if ($errors->has('province'))
                                     <span class="invalid-feedback" role="alert">
@@ -62,7 +62,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">address</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" address="address" value="{{ old('address') }}" required autofocus>
+                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus>
 
                                 @if ($errors->has('address'))
                                     <span class="invalid-feedback" role="alert">

@@ -38,6 +38,52 @@ class UserTableSeeder extends Seeder
     	$user ->password = bcrypt('mazenda9999');
     	$user ->save();
     	$user ->roles()->attach($role_user);
+
+
+        $user = new User();
+        $user ->name =  "user1";
+        $user ->email= "user1@gmail.com";
+        $user ->address = "sukabumi";
+        $user ->phone = "0984759834";
+        $user ->province = "jabar";
+        $user ->password = bcrypt('mazenda9999');
+        $user ->save();
+        $user ->roles()->attach($role_user);
+
+
+
+        $user = new User();
+        $user ->name =  "user2";
+        $user ->email= "user3@gmail.com";
+        $user ->address = "sukabumi";
+        $user ->phone = "0984759834";
+        $user ->province = "jabar";
+        $user ->password = bcrypt('mazenda9999');
+        $user ->save();
+        $user ->roles()->attach($role_user);
+
+
+
+        $user = new User();
+        $user ->name =  "user4";
+        $user ->email= "use4r@gmail.com";
+        $user ->address = "sukabumi";
+        $user ->phone = "0984759834";
+        $user ->province = "jabar";
+        $user ->password = bcrypt('mazenda9999');
+        $user ->save();
+        $user ->roles()->attach($role_user);
+
+
+        $user = new User();
+        $user ->name =  "user";
+        $user ->email= "use5r@gmail.com";
+        $user ->address = "sukabumi";
+        $user ->phone = "0984759834";
+        $user ->province = "jabar";
+        $user ->password = bcrypt('mazenda9999');
+        $user ->save();
+        $user ->roles()->attach($role_user);
         
     }
 }

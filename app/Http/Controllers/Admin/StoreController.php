@@ -31,7 +31,7 @@ class StoreController extends Controller
 
     	$file_name = time().$request->image->getClientOriginalName();
     	$file = $request->file('image');
-    	$file->storeAs('public',$file_name);
+    	$file->storeAs('product',$file_name);
 
     	$create = new Product();
     	$create->name =  $request->name;
@@ -44,7 +44,7 @@ class StoreController extends Controller
     	$create->specification =  $request->specification;
     	$create->remain =  $request->remaining;
     	$create->save();
-    	return route('admin.list');
+    	return redirect()->route('admin.list');
 
     }
 
@@ -57,31 +57,34 @@ class StoreController extends Controller
     public function update(Request $request){
 
     	$id = $request->id;
+    	$upd =  Product::find($id);
     	if($request->file('image')){
 		$file_name = time().$request->image->getClientOriginalName();
     	$file = $request->file('image');
-    	$file->storeAs('public',$file_name);
-    	$upd->image = $file_name;
+    	$file->storeAs('product',$file_name);
+    	$image = $file_name;
+    	} else{
+    		$image =  $upd->image;
     	}
 
-    	$upd =  Product::find($id);
     	$upd->name =  $request->name;
     	$upd->image =  $request->image;
     	$upd->amount =  $request->amount;
     	$upd->price =  $request->price;
     	$upd->color =  $request->color;
     	$upd->brand =  $request->brand;
+    	$upd->image =  $image;
     	$upd->specification =  $request->specification;
     	$upd->remain =  $request->remaining;
     	$upd->save();
-    	return route('admin.list');
+    	return redirect()->route('admin.list');
     }
 
     public function destroy(Request $request){
     	$id = $request->id;
     	$del =  Product::find($id);
     	$del->delete();
-    	return route('admin.list');
+    	return redirect()->route('admin.list');
     }
 
 

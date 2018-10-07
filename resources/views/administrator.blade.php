@@ -11,6 +11,11 @@
 	<ul>
 		<li class="list-item">
 			<a href="{{route('admin.list')}}">input produk</a>
+
+		</li>
+	
+		<li>
+				<a href="{{route('admin.user')}}">user page</a>
 		</li>
 	</ul>
 </div>

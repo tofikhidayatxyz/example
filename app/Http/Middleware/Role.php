@@ -15,7 +15,7 @@ class Role
      */
     public function handle($request, Closure $next , $role)
     {
-        if (!$request->user()->hasRole($role)){
+        if (! $request->user()->hasRole($role)){
             abort(401,"this action is not authorize");
         }
         return $next($request);

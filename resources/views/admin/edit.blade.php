@@ -12,7 +12,7 @@
     <div class="container py-5">
         <form method="post" action="{{route('admin.update')}}" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="_method" value="PATCH">
+            <input type="hidden" name="_method" value="patch">
             <input type="hidden" name="id" value="{{$id}}">
             <div class="form-group row">
                 <label for="name" class="col-md-4 col-form-label text-md-right">name</label>
