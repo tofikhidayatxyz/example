@@ -10,7 +10,7 @@
 
 	<div class="container py-5">
 
-            @if($pay->payment != "[]" )
+            @if($pay->payment != "[]" &&  $pay->payment != "")
                   <div class="col-md-9 mx-auto pl-5">
                        <div class="alert alert-warning ml-5">
                        <p>anda sudah melakukan pembayaran</p>

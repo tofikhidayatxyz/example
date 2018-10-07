@@ -28,7 +28,6 @@
 						<td>{{$data->invoice}}</td>
 						<td>{{$data->user->name}}</td>
 						<td>{{$data->rekening}}</td>
-
 						<td>{{$data->price}}</td>
 						<td>{{$data->bank}}</td>
 						<th>{{$data->resi}}</th>

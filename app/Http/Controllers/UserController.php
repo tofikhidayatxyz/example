@@ -11,7 +11,7 @@ use App\Payment;
 class UserController extends Controller
 {
     public function index(){
-     	return "hello ini user page";
+     	return view('user');
      }
      public function view($id){
      	$product =  Product::find($id);

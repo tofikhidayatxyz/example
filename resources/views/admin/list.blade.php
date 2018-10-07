@@ -16,17 +16,14 @@
                     <img src="/storage/images/product/{{$key->image}}" class="col-12 ">
               </div>   
               <div class="conatiner-fluid">
-                  <h4 class="text-center font-weight-normal">{{$key->name}}</h4>
-                    <h5 class="text-center font-weight-normal">{{$key->brand}}</h5>
-                      <h5 class="text-center font-weight-normal">{{$key->price}}</h5>
+                  <h4 class="text-center font-weight-normal">name:{{$key->name}}</h4>
+                    <h5 class="text-center font-weight-normal">brand:{{$key->brand}}</h5>
+                      <h5 class="text-center font-weight-normal">Rp.{{$key->price}}</h5>
               </div>
               <div class="container-fluid">
                   <div class="row">
-                      <div class="col-6 ">
-                          <p class="text-left">{{$key->amount}}</p>
-                      </div>
-                      <div class="col-6 ">
-                          <p class="text-right">{{$key->remain}}</p>
+                      <div class="col-12 ">
+                          <p class="text-left ">sisa : {{$key->remain}}</p>
                       </div>
                   </div>
               </div>

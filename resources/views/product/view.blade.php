@@ -11,17 +11,22 @@
 		<img src="/storage/images/product/{{$product->image}}" class="col-12 p-0 " style="max-height: 400px;">
 	</div>
 	<div class="row mt-4 border-top">
-		<div class="col-md-4 border-right border-left">
+		<div class="col-md-3 border-right border-left">
 			<p>nama:</p>
 			<p>{{$product->name}}</p>
 		</div>
-		<div class="col-md-4 border-right">
+		<div class="col-md-3 border-right">
 			<p>warna:</p>
 			<p>{{$product->color}}</p>
 		</div>
-		<div class="col-md-4 border-right">
+		<div class="col-md-3 border-right">
 			<p>merek:</p>
 			<p>{{$product->brand}}</p>
+		</div>
+
+		<div class="col-md-3 border-right">
+			<p>harga:</p>
+			<p>{{$product->price}}</p>
 		</div>
 
 	</div>

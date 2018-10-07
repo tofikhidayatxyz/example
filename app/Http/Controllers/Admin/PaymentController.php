@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Product;
 use App\Payment;
+use App\Invoice;
 class PaymentController extends Controller
 {
     public function view(){
@@ -18,10 +20,14 @@ class PaymentController extends Controller
     }
 
     public function update(Request $request){
-
+        $status = $request->status;
     	$pay = Payment::find($request->id);
-    	$pay->status =  $request->status;
+    	$pay->status = $status ;
     	$pay->resi = $request->resi;
+        if($status =  "send"){
+
+            return Invoice::where('id',1)->id;
+        }
     	$pay->save();
     	return redirect()->route('view.payment');
 

@@ -15,8 +15,10 @@
 				<th>invoice</th>
 				<th>date</th>
 				<th>atas produk</th>
+				<th>harga</th>
 				<th>bayar</th>
 				<th>status</th>
+				<th>resi</th>
 				<th>batalkan</th>
 			</thead>
 		<tbody>
@@ -26,20 +28,22 @@
 					<td>{{$data->invoice}}</td>
 					<td>{{$data->created_at}}</td>
 					<td><a href="/user/show/{{$data->product->id}}">{{$data->product->name}}</a></td>
+					<td>Rp.{{$data->price}}</td>
 					<td>
 						<a href="/user/payment/{{$data->id}}" class="btn btn-info text-white">bayar sekarang</a>
 					</td>
 					<td>
-					@if($data->payment != "[]" )
+					@if($data->payment != "[]" &&  $data->payment != "")
 					{{ $data->payment->status}}
 					@else 
 					belum d bayar
 					@endif
 
 					</td>
+					<th>@if($data->resi) {{$data->resi}} @else paket belum di kirim @endif </th>
 					<td>
-						@if($data->payment != "[]" )
-						<button class="btn btn-disabled">tidak dapat membatalkan</button>
+						@if($data->payment != "[]" &&  $data->payment != "" )
+						<button class="btn btn-disabled">batalkan</button>
 						@else
 						<form method="post" action="{{route('invoice.delete')}}">
 							@csrf

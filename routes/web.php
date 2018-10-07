@@ -58,5 +58,5 @@ Route::group(['prefix'=>'user' , 'middleware'=>['auth','role:user']],function(){
 	route::post('/payment/pay','User\PaymentController@store')->name('payment.pay');
 
 	route::get('/show/{id}','UserController@view')->name('show.product');
-	route::post('/product/add','User\ 	ProductController@store')->name('user.product.add');
+	route::post('/product/add','User\ProductController@store')->name('user.product.add');
 });
