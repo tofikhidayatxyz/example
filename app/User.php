@@ -29,6 +29,14 @@ class User extends Authenticatable
     ];
 
 
+ public function authorizeRoles($roles){
+        if(is_array($roles)){
+            return $this->hasAnyRole($roles) ||  abort(401 , "this action is not authorize");
+        } 
+         return $this->hasRole($roles) ||  abort(401,"this action is not authorize");
+    }
+
+
     /* relation to role model */
     public function roles(){
         return $this->belongsToMany(Role::class);
@@ -43,15 +51,15 @@ class User extends Authenticatable
 
 
     public function hasRole($role){
-        return null !== $this->where('name', $role )->first();
+        return null !== $this->roles()->where('name', $role )->first();
+    }
+
+    /* relation to payment */
+
+    public function payments(){
+        return $this->hasMany('App\Payment','user_id');
     }
 
 
-
-    public function authorizeRoles($roles){
-        if(is_array($roles)){
-            return $this->hasAnyRole($roles) ||  abort(401 , "this action is not authorize");
-        } 
-         return $this->hasRole($roles) ||  abort(401,"this action is not authorize");
-    }
+   
 }

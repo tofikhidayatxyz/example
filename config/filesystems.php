@@ -60,6 +60,12 @@ return [
             'url' => env('APP_URL').'/storage/app/product',
             'visibility' => 'public',
         ],
+         'confirmation' => [
+            'driver' => 'local',
+            'root' => storage_path('app/confirmation'),
+            'url' => env('APP_URL').'/storage/app/confirmation',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

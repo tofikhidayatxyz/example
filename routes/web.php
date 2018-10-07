@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/signout','Auth\LoginController@logout')->name('singout');
+
+Route::get('/','FrontendController@index')->name('home');
 
 Auth::routes();
 
@@ -22,6 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/storage/images/product/{image}',['uses'=>'MediaController@view'])->name('image');
 
 Route::group(['prefix'=>'admin' , 'middleware'=>['auth','role:admin']],function(){
+
+
+	route::get('/payment/image/{image}','MediaController@viewConfirmation')->name('view.confirmation');
+	route::get('/payment/','Admin\PaymentController@view')->name('view.payment');
+	route::get('/payment/edit/{id}','Admin\PaymentController@edit')->name('payment.admin.edit');
+	route::patch('/payment/update','Admin\PaymentController@update')->name('payment.admin.update');	
+	
  	route::get('/','AdminController@index')->name('admin.home');
  	route::get('/store','Admin\StoreController@add')->name('admin.store');
  	route::get('/product/list','Admin\StoreController@index')->name('admin.list');
@@ -42,4 +49,14 @@ Route::group(['prefix'=>'admin' , 'middleware'=>['auth','role:admin']],function(
 
 Route::group(['prefix'=>'user' , 'middleware'=>['auth','role:user']],function(){
 	route::get('/','UserController@index')->name('user.home');
+	
+	route::get('/invoice','UserController@invoice')->name('user.invoice');
+
+	route::post('/invoice/delete','User\InvoiceController@destroy')->name('invoice.delete');
+
+	route::get('/payment/{id}','User\InvoiceController@payment')->name('user.payment');
+	route::post('/payment/pay','User\PaymentController@store')->name('payment.pay');
+
+	route::get('/show/{id}','UserController@view')->name('show.product');
+	route::post('/product/add','User\ 	ProductController@store')->name('user.product.add');
 });

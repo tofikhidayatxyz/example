@@ -17,6 +17,9 @@
 		<li>
 				<a href="{{route('admin.user')}}">user page</a>
 		</li>
+		<li>
+			<a href="{{route('view.payment')}}">lihat konfirmasi</a>
+		</li>
 	</ul>
 </div>
 
